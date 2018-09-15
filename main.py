@@ -1,14 +1,13 @@
 from datetime import datetime
 import os
-import pdb; pdb.set_trace()
 from flask import Flask, render_template, request, redirect, url_for, session
 from passlib.hash import pbkdf2_sha256
 
 from model import Task, User
 
 app = Flask(__name__)
-#app.secret_key = b'\x1f\x8d\xaf\xe3\xec\x01 \xa1\x95\x99Kf\xdc\xe9G\x15\xa0C\x9e\x9bf\x08\x9c;'
-app.secret_key = os.environ.get('SECRET_KEY').encode()
+app.secret_key = b'\x1f\x8d\xaf\xe3\xec\x01 \xa1\x95\x99Kf\xdc\xe9G\x15\xa0C\x9e\x9bf\x08\x9c;'
+#app.secret_key = os.environ.get('SECRET_KEY').encode()
 
 
 

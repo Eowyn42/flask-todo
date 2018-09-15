@@ -27,3 +27,25 @@ def login():
         # Else the user is just trying to view the login
         # so render the login.jinja2 template
         return render_template('login.jinja2')
+
+
+
+
+
+
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        user = User.select().where(User.name == request.form['name']).get()
+
+        if user and pbkdf2_sha256.verify(request.form['password'], user.password):
+            session['username'] = request.form['name']
+            return redirect(url_for('all_tasks'))
+
+        return render_template('login.jinja2', error="Incorrect username or password.")
+
+    else:
+        return render_template('login.jinja2') 
+

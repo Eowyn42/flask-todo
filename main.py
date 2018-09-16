@@ -71,7 +71,7 @@ def incomplete_tasks():
     # If the visitor is not logged in as a user:
         # Then redirect them to the login page
     if 'username' not in session:
-        return redirect(url_for(login))
+        return redirect(url_for('login'))
 
     # if the request method is post
     if request.method == 'POST':

@@ -1,5 +1,6 @@
 click==6.7
 Flask==1.0.2
+flask-peewee==3.0.3
 gunicorn==19.9.0
 itsdangerous==0.24
 Jinja2==2.10
@@ -8,3 +9,5 @@ passlib==1.7.1
 peewee==3.6.4
 psycopg2==2.7.5
 Werkzeug==0.14.1
+wtf-peewee==3.0.0
+WTForms==2.2.1

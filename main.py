@@ -25,7 +25,7 @@ def create():
     #    Also, redirect the user to the list of all tasks
     # Otherwise, just render the create.jinja2 template
     if 'username' not in session:
-        return redirect(url_for(login))
+        return redirect(url_for('login'))
 
     if request.method == 'POST':
         task = Task(name=request.form['name'])

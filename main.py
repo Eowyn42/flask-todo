@@ -6,8 +6,8 @@ from passlib.hash import pbkdf2_sha256
 from model import Task, User
 
 app = Flask(__name__)
-app.secret_key = b'\x1f\x8d\xaf\xe3\xec\x01 \xa1\x95\x99Kf\xdc\xe9G\x15\xa0C\x9e\x9bf\x08\x9c;'
-#app.secret_key = os.environ.get('SECRET_KEY').encode()
+#app.secret_key = b'\x1f\x8d\xaf\xe3\xec\x01 \xa1\x95\x99Kf\xdc\xe9G\x15\xa0C\x9e\x9bf\x08\x9c;'
+app.secret_key = os.environ.get('SECRET_KEY').encode()
 
 
 
@@ -30,8 +30,8 @@ def create():
     if request.method == 'POST':
         task = Task(name=request.form['name'])
         task.save()
-        # why do you sometimes render and sometimes return a redirect?
-        return(redirect(url_for('all_tasks')))
+        # why sometimes render and sometimes redirect?
+        return redirect(url_for('all_tasks'))
     else:
         return render_template('create.jinja2')
 
